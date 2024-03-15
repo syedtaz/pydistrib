@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pydistrib"
+version = "0.1.0"
+description = ""
+authors = ["Tazmilur Saad <ssaad@colgate.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
