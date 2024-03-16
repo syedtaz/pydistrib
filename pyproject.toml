@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 ujson = "^5.9.0"
+asyncio = "^3.4.3"
 
 
 [tool.poetry.group.dev.dependencies]

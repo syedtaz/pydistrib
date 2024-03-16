@@ -1,6 +1,7 @@
 from time import clock_gettime_ns, CLOCK_REALTIME
+from pathlib import Path
+from io import TextIOWrapper
 
-import io
 import ujson
 import os
 
@@ -24,7 +25,7 @@ class Entry[T]:
 
 
 class Log[T]:
-    fp: io.TextIOWrapper
+    fp: TextIOWrapper
     index: int
     base: int
     base_low: int
@@ -60,8 +61,8 @@ class Log[T]:
 
     def _discard_logs(self) -> None:
 
-        candidates = [file for file in os.listdir() if self.filename in file]
-        candidates = [file for file in candidates if int(file.split("_")[-1]) < self.base_low]
+        candidates = [Path(file) for file in os.listdir() if self.filename in file]
+        candidates = [file for file in candidates if int(file.stem.split("_")[-1]) < self.base_low]
 
         for file in candidates:
             os.remove(file)
